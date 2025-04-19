@@ -1200,8 +1200,8 @@
 
     .image-frame {
       position: relative;
-      width: 90%;
-      height: 90%;
+      width: 80%;
+      height: 80%;
       transition: transform 0.3s ease;
     }
   }
@@ -1532,7 +1532,7 @@
     padding: 20px;
   }
   .faq-title {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 }
 .faq-accordion {
