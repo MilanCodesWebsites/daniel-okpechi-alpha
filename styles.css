@@ -1535,8 +1535,13 @@
     padding: 20px;
   }
   .faq-title {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
+
+  .faq-question{
+    font-size: 1rem;
+  }
+
 }
 .faq-accordion {
   width: 100%;
