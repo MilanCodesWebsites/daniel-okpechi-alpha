@@ -584,6 +584,10 @@
     .hero-image img {
         max-width: 80%;
     }
+
+    .cursor-core{
+      display: none;
+    }
 }
 
 @media (max-width: 576px) {
