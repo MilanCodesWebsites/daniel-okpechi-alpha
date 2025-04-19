@@ -1,0 +1,233 @@
+
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Loading Wrapper */
+.loading-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+/* Loading Container */
+.loading-container {
+    position: relative;
+    text-align: center;
+    height: 200px;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 300px;
+    height: 2px;
+    background-color: #333;
+    margin: 40px auto 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #ff5555;
+    transition: width 0.3s ease;
+}
+
+/* Text Animation */
+.text-container {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+    z-index: 10;
+    font-family: "Orbitron";
+}
+
+.main-text {
+    font-size: 48px;
+    line-height: 1.2;
+    color: #ff5555;
+}
+
+.line1 {
+    display: block;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: floatDown 1.2s ease-out forwards;
+    font-weight: 300;
+}
+
+.line2 {
+    display: block;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: floatUp 1.2s ease-out 0.4s forwards;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes floatDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.loading-text {
+    color: #777;
+    margin-top: 30px;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.8s forwards;
+    letter-spacing: 2px;
+    font-family: "Orbitron";
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Floating Icons */
+.floating-icon {
+    position: absolute;
+    color: rgba(255, 85, 85, 0.15);
+    animation: float 15s infinite linear;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.fa-icon {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(var(--move-x), var(--move-y)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main Content */
+.main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.loading-complete .loading-wrapper {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-complete .main-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Sample Main Content Styles */
+.main-header {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.content-section {
+    margin: 0 auto;
+}
+
+.cursor-core {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(45deg, #ff3333, #ff5555);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: corePulse 2s infinite;
+}
+
+@keyframes corePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.cursor-core.hovering {
+  transform: translate(-50%, -50%) scale(1.6);
+  box-shadow: 0 0 30px rgba(255, 51, 51, 1);
+}
+
+.cursor-core.clicked::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255, 51, 51, 0.4);
+  border-radius: 50%;
+  animation: clickRipple 0.4s forwards;
+  pointer-events: none;
+}
+
+@keyframes clickRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.laser {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 51, 51, 0.3);
+  box-shadow: 0 0 12px rgba(255, 51, 51, 0.5);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
