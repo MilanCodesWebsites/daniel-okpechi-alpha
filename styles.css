@@ -8,7 +8,9 @@
     --font-family: "Montserrat", sans-serif;
   }
   
- 
+ html{
+  scroll-behavior: smooth;
+ }
  
   * {
     margin: 0;
@@ -1190,6 +1192,13 @@
     .cta{
       text-align: center;
       margin: auto;
+    }
+
+    .image-frame {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      transition: transform 0.3s ease;
     }
   }
 
